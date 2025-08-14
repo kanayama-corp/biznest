@@ -4,9 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>業務効率化支援サービス | スプレッドシート・GAS・導入支援</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script>
+        // ローディングページが表示されたかチェック
+        (function() {
+            const hasSeenLoading = sessionStorage.getItem('hasSeenLoading');
+            if (!hasSeenLoading) {
+                // ローディングページを見ていない場合はリダイレクト
+                window.location.href = 'loading.html';
+            }
+        })();
+    </script>
 </head>
 <body>
     <!-- ヘッダー -->
@@ -274,6 +286,60 @@
                         </ul>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- オプションメニューセクション -->
+    <section id="options" class="options">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">オプションメニュー</h2>
+                <p class="section-subtitle">追加サービスで更なる効率化を実現</p>
+            </div>
+            <div class="options-grid">
+                <div class="option-card">
+                    <div class="option-header">
+                        <h3>EXTRA</h3>
+                    </div>
+                    <div class="option-content">
+                        <h4>サービス工数<br>追加料金</h4>
+                        <div class="option-price">
+                            <span class="amount">5,000</span>
+                            <span class="currency">円〜</span>
+                        </div>
+                        <p class="option-description">※作業ボリューム、難易度に応じて応相談</p>
+                    </div>
+                </div>
+                <div class="option-card">
+                    <div class="option-header">
+                        <h3>MANUAL</h3>
+                    </div>
+                    <div class="option-content">
+                        <h4>自動化処理<br>マニュアル作成</h4>
+                        <div class="option-price">
+                            <span class="amount">5,000</span>
+                            <span class="currency">円〜</span>
+                        </div>
+                        <p class="option-description">※マニュアルが不要な場合、こちらの費用はかかりません。</p>
+                    </div>
+                </div>
+                <div class="option-card">
+                    <div class="option-header">
+                        <h3>MAINTENANCE</h3>
+                    </div>
+                    <div class="option-content">
+                        <h4>保守料金</h4>
+                        <div class="option-price">
+                            <span class="amount">5,000</span>
+                            <span class="currency">円/月</span>
+                        </div>
+                        <p class="option-description">※保守が不要な場合、こちらの費用はかかりません<br>※月あたり3時間までの使い方サポートや微修正が可能です</p>
+                    </div>
+                </div>
+            </div>
+            <div class="options-note">
+                <p>※上記の料金は目安となります。お客様の現状やご要望をお打合せさせていただいた上で、お見積りをご案内させていただきます。まずはお気軽にお問い合わせください</p>
             </div>
         </div>
     </section>

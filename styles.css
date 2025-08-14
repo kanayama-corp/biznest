@@ -112,6 +112,10 @@ body {
     align-items: center;
     position: relative;
     overflow: hidden;
+    font-display: swap;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
 }
 
 
@@ -134,6 +138,11 @@ body {
     line-height: 1.2;
     margin-bottom: 1.5rem;
     color: white;
+    font-display: swap;
+    visibility: visible;
+    opacity: 1;
+    transform: translateZ(0);
+    will-change: transform;
 }
 
 .highlight {
@@ -145,6 +154,10 @@ body {
     margin-bottom: 1.5rem;
     opacity: 0.9;
     color: white;
+    font-display: swap;
+    visibility: visible;
+    transform: translateZ(0);
+    will-change: transform;
 }
 
 .hero-tagline {
@@ -167,6 +180,10 @@ body {
     color: white;
     display: block;
     position: relative;
+    font-display: swap;
+    visibility: visible;
+    transform: translateZ(0);
+    will-change: transform;
 }
 
 .tagline-underline {
@@ -525,8 +542,8 @@ body {
 
 /* 料金セクション */
 .pricing {
-    padding: 80px 0;
-    background-color: #f8fafc;
+    padding: 100px 0;
+    background: #f8f9fa;
 }
 
 .pricing-grid {
@@ -538,51 +555,32 @@ body {
 
 .pricing-card {
     background: white;
-    border-radius: 16px;
+    border-radius: 10px;
     padding: 2rem;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
     border: 2px solid transparent;
 }
 
 .pricing-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
 }
 
 .pricing-card.featured {
-    border-color: #667eea;
+    border-color: #007bff;
     transform: scale(1.05);
-    position: relative;
-}
-
-.pricing-card.featured::before {
-    content: '人気';
-    position: absolute;
-    top: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: #667eea;
-    color: white;
-    padding: 5px 20px;
-    border-radius: 20px;
-    font-size: 0.8rem;
-    font-weight: 600;
-}
-
-.pricing-header {
-    text-align: center;
-    margin-bottom: 2rem;
 }
 
 .pricing-header h3 {
-    font-size: 1.5rem;
-    font-weight: 700;
     color: #333;
     margin-bottom: 1rem;
+    font-size: 1.5rem;
 }
 
 .price {
+    margin: 1.5rem 0;
     display: flex;
     align-items: baseline;
     justify-content: center;
@@ -623,6 +621,99 @@ body {
     font-weight: bold;
     margin-right: 0.75rem;
     font-size: 1.1rem;
+}
+
+/* オプションメニューセクション */
+.options {
+    padding: 100px 0;
+    background: white;
+}
+
+.options-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.option-card {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #e0e0e0;
+}
+
+.option-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.option-header {
+    background: linear-gradient(135deg, #a8b5c8, #8fa3b8);
+    color: white;
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.option-header h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.option-content {
+    padding: 2rem;
+    text-align: center;
+}
+
+.option-content h4 {
+    color: #333;
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+    line-height: 1.4;
+    font-weight: 500;
+}
+
+.option-price {
+    margin: 1.5rem 0;
+}
+
+.option-price .amount {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #a8b5c8;
+}
+
+.option-price .currency {
+    color: #666;
+    margin-left: 0.3rem;
+    font-size: 1.1rem;
+}
+
+.option-description {
+    color: #666;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-top: 1rem;
+}
+
+.options-note {
+    margin-top: 3rem;
+    padding: 2rem;
+    background: #f8f9fa;
+    border-radius: 10px;
+    border: 1px solid #e0e0e0;
+}
+
+.options-note p {
+    color: #666;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin: 0;
+    text-align: center;
 }
 
 /* 特徴セクション */
