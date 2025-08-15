@@ -49,6 +49,38 @@ window.addEventListener('scroll', function() {
 
 // フォーム関連の処理は削除済み（Googleフォームボタンに変更）
 
+// タイピングエフェクト
+function typeWriter() {
+    const text = '今こそ、仕組みで勝つ時代。';
+    const typingElement = document.getElementById('typing-text');
+    const cursor = document.querySelector('.typing-cursor');
+    let i = 0;
+    
+    // カーソルを常に非表示
+    cursor.style.display = 'none';
+    
+    function type() {
+        if (i < text.length) {
+            typingElement.textContent += text.charAt(i);
+            i++;
+            // 文字によって異なる速度でタイピング（句読点で少し長めの間隔）
+            const delay = (text.charAt(i-1) === '、' || text.charAt(i-1) === '。') ? 200 : 100;
+            setTimeout(type, delay);
+        }
+        // タイピング完了後もカーソルは非表示のまま
+    }
+    
+    // 0.5秒後にタイピング開始
+    setTimeout(() => {
+        type();
+    }, 500);
+}
+
+// ページ読み込み完了後にタイピングエフェクトを開始
+document.addEventListener('DOMContentLoaded', function() {
+    typeWriter();
+});
+
 // アニメーション効果（Intersection Observer）
 const observerOptions = {
     threshold: 0.1,
