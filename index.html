@@ -249,6 +249,53 @@
         </div>
     </section>
 
+    <!-- 改善例セクション -->
+    <section id="before-after" class="before-after">
+        <div class="container">
+            <h2 class="section-title">改善例</h2>
+        </div>
+        <div class="container">
+            <div class="before-after-grid">
+                <!-- 1カラム目：改善前 -->
+                <div class="simple-card before" onclick="openModal('image/改善前1.png', '改善前1')">
+                    <img src="image/改善前1.png" alt="改善前1" />
+                </div>
+                
+                <!-- 1-2間の矢印 -->
+                <div class="arrow-container">
+                    <div class="arrow-icon">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </div>
+
+                <!-- 2カラム目：改善後 -->
+                <div class="simple-card after" onclick="openModal('image/改善後1.png', '改善後1')">
+                    <img src="image/改善後1.png" alt="改善後1" />
+                </div>
+                
+                <!-- スペーサー2 -->
+                <div class="card-spacer"></div>
+
+                <!-- 3カラム目：改善前 -->
+                <div class="simple-card before" onclick="openModal('image/改善前2.png', '改善前2')">
+                    <img src="image/改善前2.png" alt="改善前2" />
+                </div>
+                
+                <!-- 3-4間の矢印 -->
+                <div class="arrow-container">
+                    <div class="arrow-icon">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </div>
+
+                <!-- 4カラム目：改善後 -->
+                <div class="simple-card after" onclick="openModal('image/改善後2.png', '改善後2')">
+                    <img src="image/改善後2.png" alt="改善後2" />
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- 料金セクション -->
     <section id="pricing" class="pricing">
         <div class="container">
@@ -407,6 +454,14 @@
         </div>
     </section>
 
+    <!-- モーダル -->
+    <div id="imageModal" class="modal" onclick="closeModal()">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <button class="modal-close" onclick="closeModal()">&times;</button>
+            <img id="modalImage" src="" alt="" />
+        </div>
+    </div>
+
     <!-- お問い合わせセクション -->
     <section id="contact" class="contact">
         <div class="container">
@@ -504,5 +559,34 @@
     </footer>
 
     <script src="script.js"></script>
+    
+    <script>
+        // モーダル機能
+        function openModal(imageSrc, altText) {
+            const modal = document.getElementById('imageModal');
+            const modalImage = document.getElementById('modalImage');
+            
+            modalImage.src = imageSrc;
+            modalImage.alt = altText;
+            modal.classList.add('show');
+            
+            // ESCキーでモーダルを閉じる
+            document.addEventListener('keydown', handleEscKey);
+        }
+        
+        function closeModal() {
+            const modal = document.getElementById('imageModal');
+            modal.classList.remove('show');
+            
+            // ESCキーイベントリスナーを削除
+            document.removeEventListener('keydown', handleEscKey);
+        }
+        
+        function handleEscKey(event) {
+            if (event.key === 'Escape') {
+                closeModal();
+            }
+        }
+    </script>
 </body>
 </html>
