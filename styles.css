@@ -423,19 +423,19 @@ body {
 @keyframes floatShape {
     0%, 100% {
         transform: translateZ(0) rotateX(0deg) rotateY(0deg) rotateZ(0deg);
-        opacity: 0.3;
+        opacity: 0.4;
     }
     25% {
         transform: translateZ(-100px) rotateX(90deg) rotateY(45deg) rotateZ(45deg);
-        opacity: 0.8;
+        opacity: 0.4;
     }
     50% {
         transform: translateZ(-200px) rotateX(180deg) rotateY(90deg) rotateZ(90deg);
-        opacity: 1;
+        opacity: 0.4;
     }
     75% {
         transform: translateZ(-100px) rotateX(270deg) rotateY(135deg) rotateZ(135deg);
-        opacity: 0.8;
+        opacity: 0.4;
     }
 }
 
@@ -723,7 +723,7 @@ body {
     padding: 1rem 2rem;
     font-weight: 600;
     /* ダークボタン用のシャドウ */
-    box-shadow: 5px 5px 0px #111827;
+    box-shadow: 5px 5px 0px rgba(0, 0, 0, 0.3);
 }
 
 .btn-dark:hover {
@@ -1610,7 +1610,7 @@ body {
     cursor: pointer;
     position: relative;
     /* アウトラインボタン用のシャドウ */
-    box-shadow: 4px 4px 0px #222 !important;
+    box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.3) !important;
 }
 
 .btn-outline:hover {
@@ -1788,6 +1788,7 @@ html {
 .before-after .section-title {
     text-align: center;
     margin-bottom: 60px;
+    margin-left: -20px;
 }
 
 .before-after-grid {
@@ -1980,8 +1981,8 @@ background: linear-gradient(135deg, #fef2f2, #ffffff);
 
 .modal-close {
     position: absolute;
-    top: -15px;
-    right: -15px;
+    top: 15px;
+    right: 15px;
     background: #ef4444;
     color: white;
     border: none;
@@ -1995,6 +1996,7 @@ background: linear-gradient(135deg, #fef2f2, #ffffff);
     justify-content: center;
     box-shadow: 0 4px 15px rgba(239, 68, 68, 0.3);
     transition: all 0.3s ease;
+    z-index: 10;
 }
 
 .modal-close:hover {
