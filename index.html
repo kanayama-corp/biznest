@@ -54,6 +54,27 @@
 
     <!-- ヒーローセクション -->
     <section id="home" class="hero">
+        <!-- 3D電子空間エフェクト -->
+        <div class="cyber-space">
+            
+            <!-- 浮遊する3D図形 -->
+            <div class="floating-shapes">
+                <div class="shape cube" style="--x: 15%; --y: 20%; --delay: 0s;"></div>
+                <div class="shape pyramid" style="--x: 75%; --y: 30%; --delay: 1s;"></div>
+                <div class="shape sphere" style="--x: 25%; --y: 70%; --delay: 2s;"></div>
+                <div class="shape diamond" style="--x: 85%; --y: 65%; --delay: 1.5s;"></div>
+                <div class="shape hexagon" style="--x: 45%; --y: 15%; --delay: 0.8s;"></div>
+                <div class="shape octagon" style="--x: 65%; --y: 80%; --delay: 2.3s;"></div>
+            </div>
+            
+            <!-- デジタル軌跡 -->
+            <div class="digital-trails">
+                <div class="trail" style="--start-x: 10%; --start-y: 25%; --end-x: 90%; --end-y: 75%; --delay: 0s;"></div>
+                <div class="trail" style="--start-x: 80%; --start-y: 20%; --end-x: 20%; --end-y: 80%; --delay: 1.5s;"></div>
+                <div class="trail" style="--start-x: 30%; --start-y: 60%; --end-x: 70%; --end-y: 40%; --delay: 3s;"></div>
+            </div>
+        </div>
+        
         <div class="particles">
             <div class="particle"></div>
             <div class="particle"></div>
@@ -296,12 +317,9 @@
             
             <!-- 2行目のカード -->
             <div class="before-after-grid" style="margin-top: 3rem;">
-                <!-- 1カラム目：改善前 -->
-                <div class="simple-card before video-card" onclick="openVideoModal('image/改善前3.mov', '改善前3')">
-                    <video autoplay muted loop playsinline>
-                        <source src="image/改善前3.mov" type="video/mp4">
-                        <img src="image/改善前3.png" alt="改善前3" />
-                    </video>
+                <!-- 1カラム目：改善前3 -->
+                <div class="simple-card before" onclick="openModal('image/改善前3.png', '改善前3')">
+                    <img src="image/改善前3.png" alt="改善前3" />
                 </div>
                 
                 <!-- 1-2間の矢印 -->
@@ -311,7 +329,7 @@
                     </div>
                 </div>
 
-                <!-- 2カラム目：改善後 -->
+                <!-- 2カラム目：改善後3 -->
                 <div class="simple-card after" onclick="openModal('image/改善後3.png', '改善後3')">
                     <img src="image/改善後3.png" alt="改善後3" />
                 </div>
@@ -319,7 +337,7 @@
                 <!-- スペーサー2 -->
                 <div class="card-spacer"></div>
 
-                <!-- 3カラム目：改善前 -->
+                <!-- 3カラム目：改善前4 -->
                 <div class="simple-card before" onclick="openModal('image/改善前4.png', '改善前4')">
                     <img src="image/改善前4.png" alt="改善前4" />
                 </div>
@@ -331,11 +349,12 @@
                     </div>
                 </div>
 
-                <!-- 4カラム目：改善後 -->
+                <!-- 4カラム目：改善後4 -->
                 <div class="simple-card after" onclick="openModal('image/改善後4.png', '改善後4')">
                     <img src="image/改善後4.png" alt="改善後4" />
                 </div>
             </div>
+
         </div>
     </section>
 
@@ -561,7 +580,6 @@
                     <h3>お問い合わせフォーム</h3>
                     <p>お気軽にご相談ください。<br>Googleフォームからお問い合わせいただけます。</p>
                     <a href="https://forms.google.com/" target="_blank" class="btn btn-primary btn-full google-form-btn">
-                        <i class="fas fa-external-link-alt"></i>
                         お問い合わせ
                     </a>
                     <div class="map-section">
