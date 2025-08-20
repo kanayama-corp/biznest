@@ -49,22 +49,22 @@ window.addEventListener('scroll', function() {
 
 // フォーム関連の処理は削除済み（Googleフォームボタンに変更）
 
-// タイピングエフェクト
+// タイプライターエフェクト
 function typeWriter() {
-    const text = '今こそ、仕組みで勝つ時代。';
+    const text = '時間は削れる。成果は伸ばせる。';
     const typingElement = document.getElementById('typing-text');
     const cursor = document.querySelector('.typing-cursor');
     let i = 0;
     
-    // カーソルを常に非表示
+    // カーソルを常に非表示にする
     cursor.style.display = 'none';
     
     function type() {
         if (i < text.length) {
             typingElement.textContent += text.charAt(i);
             i++;
-            // 文字によって異なる速度でタイピング（句読点で少し長めの間隔）
-            const delay = (text.charAt(i-1) === '、' || text.charAt(i-1) === '。') ? 200 : 100;
+            // タイプライター風の一定速度でタイピング（句読点で少し長めの間隔）
+            const delay = (text.charAt(i-1) === '、' || text.charAt(i-1) === '。') ? 300 : 120;
             setTimeout(type, delay);
         }
         // タイピング完了後もカーソルは非表示のまま

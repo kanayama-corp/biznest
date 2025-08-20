@@ -436,6 +436,49 @@ body {
     }
 }
 
+@keyframes kiran {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    50% {
+        transform: translateX(0%);
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+}
+
+/* 斜線ディバイダー */
+.diagonal-divider {
+    position: relative;
+    height: 80px;
+    overflow: hidden;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.diagonal-divider.reverse {
+    background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+}
+
+.diagonal-shape {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    transform: skewY(-3deg);
+    transform-origin: top left;
+}
+
+.diagonal-divider.reverse .diagonal-shape {
+    transform: skewY(3deg);
+    transform-origin: top right;
+}
+
 @keyframes underlineGlow {
     0% {
         box-shadow: 0 0 5px rgba(251, 191, 36, 0.3);
@@ -808,7 +851,44 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    opacity: 0.9;
+    border-radius: 12px;
+    transition: all 0.4s ease;
+}
+
+.portfolio-item {
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: all 0.4s ease;
+    position: relative;
+}
+
+.portfolio-item::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    background: linear-gradient(45deg, rgba(37, 99, 235, 0.1), rgba(251, 191, 36, 0.1), rgba(16, 185, 129, 0.1));
+    filter: blur(20px);
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.portfolio-item:hover::before {
+    opacity: 1;
+}
+
+.portfolio-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+}
+
+.portfolio-item:hover .portfolio-icon-image {
+    transform: scale(1.05);
 }
 
 .portfolio-content {
@@ -886,7 +966,7 @@ body {
     text-align: center;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
-    border: 2px solid transparent;
+    border: 1px solid rgba(0, 0, 0, 0.15);
 }
 
 .pricing-card:hover {
@@ -895,15 +975,44 @@ body {
 }
 
 .pricing-card.featured {
-    border-color: #007bff;
+    background: linear-gradient(135deg, rgba(255, 0, 150, 0.08), rgba(0, 150, 255, 0.08));
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(0, 0, 0, 0.2);
     transform: scale(1.05);
     position: relative;
+    color: #333;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    opacity: 1;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.pricing-card.featured::before {
+    background-color: #fff;
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: cubic-bezier(0.32, 0, 0.67, 0);
+    border-radius: inherit;
+    z-index: 1;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.6), transparent);
+    transform: translateX(-100%);
+}
+
+.pricing-card.featured:hover::before {
+    animation: kiran 0.5s linear;
 }
 
 .recommended-badge {
     position: absolute;
-    top: -10px;
-    right: -10px;
+    top: 15px;
+    right: 10px;
     background: linear-gradient(135deg, #ff6b6b, #ee5a24);
     color: white;
     padding: 8px 16px;
@@ -911,8 +1020,8 @@ body {
     font-size: 0.85rem;
     font-weight: 600;
     box-shadow: 0 4px 12px rgba(255, 107, 107, 0.3);
-    z-index: 10;
-    transform: rotate(15deg);
+    z-index: 20;
+    transform: rotate(12deg);
     animation: pulse 2s infinite;
 }
 
@@ -1537,6 +1646,63 @@ html {
     object-fit: cover;
     display: block;
     border-radius: 16px;
+    transition: all 0.4s ease;
+}
+
+/* 動画カード用スタイル */
+.video-card video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 16px;
+    transition: all 0.4s ease;
+    background: #f5f5f5;
+}
+
+.video-card:hover video {
+    transform: scale(1.02);
+}
+
+.simple-card {
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    width: 337px;
+    height: 225px;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.simple-card::before {
+    content: '';
+    position: absolute;
+    top: -15px;
+    left: -15px;
+    right: -15px;
+    bottom: -15px;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    filter: blur(25px);
+}
+
+.simple-card.before::before {
+    background: linear-gradient(135deg, rgba(239, 68, 68, 0.3), rgba(239, 68, 68, 0.1));
+}
+
+.simple-card.after::before {
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.3), rgba(16, 185, 129, 0.1));
+}
+
+.simple-card:hover::before {
+    opacity: 1;
+}
+
+.simple-card:hover img {
+    transform: scale(1.02);
 }
 
 .simple-card:hover {
